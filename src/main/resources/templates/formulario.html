@@ -74,7 +74,7 @@
 <div class="card">
     <h2>Registrar Evaluación</h2>
 
-    <form th:action="@{/evaluaciones/registrar}" method="post">
+    <form th:action="@{/evaluaciones/registrar}" th:object="${evaluacion}" method="post">
 
         <label>Nombre</label>
         <input type="text" name="nombre" required>
@@ -100,3 +100,4 @@
 
 </body>
 </html>
+
