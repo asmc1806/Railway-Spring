@@ -1,9 +1,102 @@
-<form action="#" th:action="@{/evaluaciones/registrar}" method="post">
-    Nombre: <input type="text" name="nombre"><br>
-    Fecha registro: <input type="datetime-local" name="fechaRegistro"><br>
-    Fecha entrega: <input type="datetime-local" name="fechaEntrega"><br>
-    Tipo encomienda: <input type="text" name="tipoEncomienda"><br>
-    Calificación: <input type="number" name="calificacion" min="1" max="5"><br>
-    Descripción: <textarea name="descripcion"></textarea><br>
-    <button type="submit">Registrar</button>
-</form>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Registrar Evaluación</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f3f5f7;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .card {
+            background: white;
+            width: 420px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 12px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            resize: vertical;
+            height: 80px;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 18px;
+            padding: 12px;
+            background-color: #4A90E2;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #357ABD;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+    <h2>Registrar Evaluación</h2>
+
+    <form th:action="@{/evaluaciones/registrar}" method="post">
+
+        <label>Nombre</label>
+        <input type="text" name="nombre" required>
+
+        <label>Fecha registro</label>
+        <input type="datetime-local" name="fechaRegistro" required>
+
+        <label>Fecha entrega</label>
+        <input type="datetime-local" name="fechaEntrega" required>
+
+        <label>Tipo encomienda</label>
+        <input type="text" name="tipoEncomienda" required>
+
+        <label>Calificación</label>
+        <input type="number" name="calificacion" min="1" max="5" required>
+
+        <label>Descripción</label>
+        <textarea name="descripcion" required></textarea>
+
+        <button type="submit">Registrar</button>
+    </form>
+</div>
+
+</body>
+</html>
