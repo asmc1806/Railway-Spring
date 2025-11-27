@@ -9,16 +9,19 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/evaluaciones")
+@CrossOrigin(origins = "*") // (opcional) Permite consumir desde HTML en Railway
 public class EvaluacionController {
 
     @Autowired
     private EvaluacionRepository repository;
 
+    // Registrar evaluación (JSON)
     @PostMapping("/registrar")
     public Evaluacion registrar(@RequestBody Evaluacion eval) {
         return repository.save(eval);
     }
 
+    // Listar todas las evaluaciones
     @GetMapping("/listar")
     public List<Evaluacion> listar() {
         return repository.findAll();
